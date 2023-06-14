@@ -24,6 +24,8 @@ class Message {
 @Consumes(MediaType.APPLICATION_JSON)
 public class GreetingResource {
 
+    //levantar okteto app
+    //okteto build -t okteto.dev/app-personas:1.0.0
     @GET
     public List<Persona> getAllPersonas() {
         return Persona.listAll();

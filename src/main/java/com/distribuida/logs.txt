@@ -1,0 +1,111 @@
+Microsoft Windows [Versión 10.0.19045.2965]
+(c) Microsoft Corporation. Todos los derechos reservados.
+
+C:\Distribuida>okteto version
+okteto version 2.16.3
+
+C:\Distribuida>set PATH=c:/distribuida;%PATH%
+
+C:\Distribuida>set PATH=c:/Distribuida;%PATH%
+
+C:\Distribuida>okteto context use https://cloud.okteto.com
+Authentication will continue in your default browser
+You can also open a browser and navigate to the following address:
+https://cloud.okteto.com/auth/authorization-code?redirect=http%3A%2F%2F127.0.0.1%3A63741%2Fauthorization-code%2Fcallback%3Fstate%3DY9jjlMDGHEWGsDEwsaAW8HcejoG63lVIycfWQZDFmsA%3D&state=Y9jjlMDGHEWGsDEwsaAW8HcejoG63lVIycfWQZDFmsA%3D
+←[42;30m ✓ ←[0m ←[32mContext 'cloud.okteto.com' created←[0m
+←[42;30m ✓ ←[0m ←[32mUsing ismaelasimbaya @ cloud.okteto.com←[0m
+
+C:\Distribuida>okteto contezt list
+←[101;30m x ←[0m ←[91mUnknown command "contezt" for "okteto"
+
+Did you mean this?
+        context
+←[0m
+
+C:\Distribuida>okteto context list
+Name                        Namespace       Builder                              Registry
+https://cloud.okteto.com *  ismaelasimbaya  tcp://buildkit.cloud.okteto.net:443  registry.cloud.okteto.net
+
+C:\Distribuida>cd app
+
+C:\Distribuida\app>java -jar app.jar
+__  ____  __  _____   ___  __ ____  ______
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/
+2023-06-14 11:56:47,154 INFO  [io.quarkus] (main) micro01 1.0-SNAPSHOT on JVM (powered by Quarkus 3.1.1.Final) started in 5.022s. Listening on: http://0.0.0.0:8080
+2023-06-14 11:56:47,154 INFO  [io.quarkus] (main) Profile prod activated.
+2023-06-14 11:56:47,154 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-postgresql, narayana-jta, resteasy-reactive, resteasy-reactive-jackson, smallrye-context-propagation, vertx]
+^C
+C:\Distribuida\app>2023-06-14 11:57:03,092 INFO  [io.quarkus] (Shutdown thread) micro01 stopped in 0.267s
+[+] Building 26.6s (12/12) FINISHED
+ => [internal] load build definition from buildkit-3032576720                                                      0.5s
+ => => transferring dockerfile: 306B                                                                               0.4s
+ => [internal] load .dockerignore                                                                                  0.3s
+ => => transferring context: 2B                                                                                    0.2s
+ => [internal] load metadata for docker.io/library/eclipse-temurin:17.0.7_7-jre-alpine                             0.2s
+ => [1/7] FROM docker.io/library/eclipse-temurin:17.0.7_7-jre-alpine@sha256:24a359d477a9ba14fdbde80a8d32d5b84951d  0.1s
+ => => resolve docker.io/library/eclipse-temurin:17.0.7_7-jre-alpine@sha256:24a359d477a9ba14fdbde80a8d32d5b84951d  0.1s
+ => => sha256:62dd25fc4e3af74b54d3e79e13570d951834de7698d73ea49d90834f994c1ca7 162B / 162B                         0.1s
+ => => sha256:c96558b8a7ae6322ca4951c3b6506ad6e1a3da23ff08e18f2adc6fa5e6624a25 46.78MB / 46.78MB                   0.8s
+ => => extracting sha256:c96558b8a7ae6322ca4951c3b6506ad6e1a3da23ff08e18f2adc6fa5e6624a25                          3.0s
+ => => extracting sha256:62dd25fc4e3af74b54d3e79e13570d951834de7698d73ea49d90834f994c1ca7                          0.1s
+ => [internal] load build context                                                                                  3.8s
+ => => transferring context: 37.30MB                                                                               3.6s
+ => [2/7] RUN mkdir /app                                                                                           0.5s
+ => [3/7] WORKDIR /app                                                                                             0.2s
+ => [4/7] COPY build/quarkus-app/app ./app                                                                         0.2s
+ => [5/7] COPY build/quarkus-app/lib ./lib                                                                         0.8s
+ => [6/7] COPY build/quarkus-app/quarkus ./quarkus                                                                 0.3s
+ => [7/7] COPY build/quarkus-app/quarkus-run.jar app.jar                                                           0.2s
+ => exporting to image                                                                                            18.5s
+ => => exporting layers                                                                                            2.2s
+ => => exporting manifest sha256:ed72f4d4985e9ab82c78c91f7999ee431c85d2eeda9a6f16893bf29c95ed3662                  0.0s
+ => => exporting config sha256:685560c45bbc8f38ba98939a56dd333e04ef8a497dd6b17b1a620a8ac8183962                    0.0s
+ => => pushing layers                                                                                             15.3s
+ => => pushing manifest for registry.cloud.okteto.net/ismaelasimbaya/app-personas:1.0.0@sha256:ed72f4d4985e9ab82c  0.9s
+ ✓  Image 'registry.cloud.okteto.net/ismaelasimbaya/app-personas:1.0.0' successfully pushed
+
+C:\Users\fing.labcom\IdeaProjects\PD_cloud_micro01>okteto deploy
+←[104;30m i ←[0m ←[94mUsing ismaelasimbaya @ cloud.okteto.com as context←[0m
+←[104;30m i ←[0m ←[94mBuild section is not defined in your okteto manifest←[0m
+←[42;30m ✓ ←[0m Kubernetes service 'persona-service' created
+←[42;30m ✓ ←[0m Endpoint 'persona-service' created
+←[42;30m ✓ ←[0m Service 'persona-service' created
+←[42;30m ✓ ←[0m Compose 'PD_cloud_micro01' successfully deployed
+←[104;30m i ←[0m Endpoints available:
+  - https://persona-service-ismaelasimbaya.cloud.okteto.net/
+←[42;30m ✓ ←[0m Development environment 'PD_cloud_micro01' successfully deployed
+←[104;30m i ←[0m Run 'okteto up' to activate your development container
+
+C:\Users\fing.labcom\IdeaProjects\PD_cloud_micro01>okteto deploy
+←[104;30m i ←[0m ←[94mUsing ismaelasimbaya @ cloud.okteto.com as context←[0m
+←[104;30m i ←[0m ←[94mBuild section is not defined in your okteto manifest←[0m
+←[42;30m ✓ ←[0m Kubernetes service 'persona-service' updated
+←[42;30m ✓ ←[0m Endpoint 'persona-service' updated
+←[42;30m ✓ ←[0m Kubernetes service 'otro-service' created
+←[42;30m ✓ ←[0m Endpoint 'otro-service' created
+←[42;30m ✓ ←[0m Service 'persona-service' updated
+←[42;30m ✓ ←[0m Service 'otro-service' created
+←[42;30m ✓ ←[0m Compose 'PD_cloud_micro01' successfully deployed
+←[104;30m i ←[0m Endpoints available:
+  - https://otro-service-ismaelasimbaya.cloud.okteto.net/
+  - https://persona-service-ismaelasimbaya.cloud.okteto.net/
+←[42;30m ✓ ←[0m Development environment 'PD_cloud_micro01' successfully deployed
+←[104;30m i ←[0m Run 'okteto up' to activate your development container
+
+C:\Users\fing.labcom\IdeaProjects\PD_cloud_micro01>okteto deploy
+←[104;30m i ←[0m ←[94mUsing ismaelasimbaya @ cloud.okteto.com as context←[0m
+←[104;30m i ←[0m ←[94mBuild section is not defined in your okteto manifest←[0m
+←[42;30m ✓ ←[0m Kubernetes service 'persona-service' updated
+←[42;30m ✓ ←[0m Endpoint 'persona-service' updated
+←[42;30m ✓ ←[0m Service 'persona-service' updated
+←[42;30m ✓ ←[0m Service 'otro-service' destroyed
+←[42;30m ✓ ←[0m Endpoint 'otro-service' destroyed
+←[42;30m ✓ ←[0m Compose 'PD_cloud_micro01' successfully deployed
+←[104;30m i ←[0m Endpoints available:
+  - https://persona-service-ismaelasimbaya.cloud.okteto.net/
+←[42;30m ✓ ←[0m Development environment 'PD_cloud_micro01' successfully deployed
+←[104;30m i ←[0m Run 'okteto up' to activate your development container
+
+C:\Users\fing.labcom\IdeaProjects\PD_cloud_micro01>
