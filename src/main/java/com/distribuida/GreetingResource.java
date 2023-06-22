@@ -19,11 +19,11 @@ class Message {
         this.msg = msg;
     }
 }
-@Path("/personas")
+/*@Path("/personas")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)*/
 public class GreetingResource {
-
+/*
     //levantar okteto app
     //okteto build -t okteto.dev/app-personas:1.0.0
     @GET
@@ -62,5 +62,5 @@ public class GreetingResource {
         persona.delete();
         return Response.noContent().build();
     }
-
+*/
 }
