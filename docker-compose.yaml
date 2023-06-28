@@ -1,6 +1,6 @@
 services:
   persona-service:
-    image: okteto.dev/app-personas:1.0.0
+    image: okteto.dev/app-books:2.0.0
     deploy:
       replicas: 1
     expose:
